@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#lib/*": "./src/lib/*.ts",
+    "#env": "./src/env.ts"
+  },
+  "scripts": {
+    "test": "bun test",
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "dev": "NODE_ENV=development bun run ./src/index.ts",
+    "build": "NODE_ENV=production bun build --minify --compile ./src/index.ts --outfile=dist/bot --target=bun-linux-arm64"
+  },
+  "dependencies": {
+    "@grammyjs/runner": "2.0.3",
+    "grammy": "1.44.0",
+    "train-times": "0.0.4"
+  },
+  "devDependencies": {
+    "@gameroman/config": "0.2.5",
+    "@types/bun": "1.3.14",
+    "oxfmt": "0.59.0",
+    "oxlint": "1.74.0",
+    "oxlint-tsgolint": "0.24.0",
+    "typescript": "7.0.2"
+  }
+}

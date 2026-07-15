@@ -1,0 +1,74 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`convertToTableData should should convert data to a table-realy object 1`] = `
+[
+  {
+    "Departure Status": "15:12 (late by 9 minutes)",
+    "Destination Arrival": "15:52",
+    "Journey Duration": "40 minutes",
+    "Operator": "South Western Railway",
+    "Platform": "3",
+    "Schedule": "15:03",
+  },
+  {
+    "Departure Status": "Cancelled",
+    "Operator": "South Western Railway",
+    "Schedule": "15:12",
+  },
+  {
+    "Departure Status": "15:24",
+    "Destination Arrival": "16:36",
+    "Journey Duration": "72 minutes",
+    "Operator": "South Western Railway",
+    "Platform": "1",
+    "Schedule": "15:24",
+  },
+  {
+    "Departure Status": "Cancelled",
+    "Operator": "South Western Railway",
+    "Schedule": "15:30",
+  },
+  {
+    "Departure Status": "15:37",
+    "Destination Arrival": "16:20",
+    "Journey Duration": "43 minutes",
+    "Operator": "South Western Railway",
+    "Platform": "3",
+    "Schedule": "15:37",
+  },
+  {
+    "Departure Status": "15:54",
+    "Destination Arrival": "17:02",
+    "Journey Duration": "68 minutes",
+    "Operator": "South Western Railway",
+    "Platform": "TBD",
+    "Schedule": "15:54",
+  },
+  {
+    "Departure Status": "Cancelled",
+    "Operator": "South Western Railway",
+    "Schedule": "15:57",
+  },
+  {
+    "Departure Status": "Delayed",
+    "Operator": "South Western Railway",
+    "Schedule": "16:03",
+  },
+  {
+    "Departure Status": "16:20 (late by 8 minutes)",
+    "Destination Arrival": "17:10",
+    "Journey Duration": "50 minutes",
+    "Operator": "South Western Railway",
+    "Platform": "TBD",
+    "Schedule": "16:12",
+  },
+  {
+    "Departure Status": "16:24",
+    "Destination Arrival": "17:36",
+    "Journey Duration": "72 minutes",
+    "Operator": "South Western Railway",
+    "Platform": "TBD",
+    "Schedule": "16:24",
+  },
+]
+`;

@@ -1,0 +1,16 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`markdownTable should should convert data to a markdown table 1`] = `
+"| Schedule | Departure Status          | Platform | Destination Arrival | Journey Duration | Operator              |
+|----------|---------------------------|----------|---------------------|------------------|-----------------------|
+| 15:03    | 15:12 (late by 9 minutes) | 3        | 15:52               | 40 minutes       | South Western Railway |
+| 15:12    | Cancelled                 |          |                     |                  | South Western Railway |
+| 15:24    | 15:24                     | 1        | 16:36               | 72 minutes       | South Western Railway |
+| 15:30    | Cancelled                 |          |                     |                  | South Western Railway |
+| 15:37    | 15:37                     | 3        | 16:20               | 43 minutes       | South Western Railway |
+| 15:54    | 15:54                     | TBD      | 17:02               | 68 minutes       | South Western Railway |
+| 15:57    | Cancelled                 |          |                     |                  | South Western Railway |
+| 16:03    | Delayed                   |          |                     |                  | South Western Railway |
+| 16:12    | 16:20 (late by 8 minutes) | TBD      | 17:10               | 50 minutes       | South Western Railway |
+| 16:24    | 16:24                     | TBD      | 17:36               | 72 minutes       | South Western Railway |"
+`;
