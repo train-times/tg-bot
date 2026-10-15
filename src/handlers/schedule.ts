@@ -12,9 +12,6 @@ import { convertToTableData, trainTableColumns } from "#lib/train-journeys";
 
 import { HELP_MESSAGE } from "./help";
 
-const DEFAULT_TIME_OFFSET = 0;
-const DEFAULT_TIME_WINDOW = 150; // 2.5 hours
-
 export async function handleSchedule(
   context: CommandContext<Context>,
 ): Promise<Message> {
@@ -30,13 +27,7 @@ export async function handleSchedule(
   let data: NormalizedTrainServicesData;
 
   try {
-    data = await getJourneysData({
-      apiKey,
-      from,
-      to,
-      timeOffset: DEFAULT_TIME_OFFSET,
-      timeWindow: DEFAULT_TIME_WINDOW,
-    });
+    data = await getJourneysData({ apiKey, from, to });
   } catch (error) {
     if (error instanceof ApiError) {
       await context.reply(`An API error occured: ${error.message}`);
