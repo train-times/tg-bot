@@ -1,12 +1,19 @@
 import type { CommandContext, Context } from "grammy";
 import type { Message } from "grammy/types";
-import { getJourneysData } from "train-times";
+import {
+  ApiError,
+  getJourneysData,
+  type NormalizedTrainServicesData,
+} from "train-times";
 
 import { apiKey } from "#env";
 import { markdownTable } from "#lib/table";
 import { convertToTableData, trainTableColumns } from "#lib/train-journeys";
 
 import { HELP_MESSAGE } from "./help";
+
+const DEFAULT_TIME_OFFSET = 0;
+const DEFAULT_TIME_WINDOW = 150; // 2.5 hours
 
 export async function handleSchedule(
   context: CommandContext<Context>,
@@ -17,12 +24,38 @@ export async function handleSchedule(
     return context.reply(HELP_MESSAGE, { parse_mode: "MarkdownV2" });
   }
 
-  const from = args[0]!;
-  const to = args[1]!;
+  const from = args[0]!.toUpperCase();
+  const to = args[1]!.toUpperCase();
 
-  const data = await getJourneysData({ apiKey, from, to });
+  let data: NormalizedTrainServicesData;
 
-  const table = markdownTable(convertToTableData(data), trainTableColumns);
+  try {
+    data = await getJourneysData({
+      apiKey,
+      from,
+      to,
+      timeOffset: DEFAULT_TIME_OFFSET,
+      timeWindow: DEFAULT_TIME_WINDOW,
+    });
+  } catch (error) {
+    if (error instanceof ApiError) {
+      await context.reply(`An API error occured: ${error.message}`);
+    }
+    throw error;
+  }
 
-  return await context.replyWithRichMessage({ markdown: table });
+  if (!data.journeys?.length) {
+    return await context.reply(
+      `No upcoming trains from ${data.fromName} to ${data.toName} found`,
+    );
+  }
+
+  const table = markdownTable(
+    convertToTableData(data.journeys),
+    trainTableColumns,
+  );
+
+  const markdown = `# Upcoming trains from ${data.fromName} to ${data.toName}\n\n---\n\n${table}`;
+
+  return await context.replyWithRichMessage({ markdown });
 }
