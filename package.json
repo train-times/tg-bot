@@ -15,7 +15,7 @@
   "dependencies": {
     "@grammyjs/runner": "2.0.3",
     "grammy": "1.46.0",
-    "train-times": "https://pkg.pr.new/train-times@60ff596"
+    "train-times": "https://pkg.pr.new/train-times@2d7ea6c"
   },
   "devDependencies": {
     "@gameroman/config": "0.3.0",
