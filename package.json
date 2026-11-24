@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@grammyjs/runner": "2.0.3",
-    "grammy": "1.46.0",
+    "grammy": "1.48.0",
     "train-times": "0.0.5"
   },
   "devDependencies": {
